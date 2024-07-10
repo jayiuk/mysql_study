@@ -52,8 +52,8 @@ ORDER BY 1
 
 SELECT
 	SUBSTR(A.orderDate, 1, 4) AS 연도
-    , COUNT(DISTINCT customerNumber) AS 구매고객_수
-    , SUM(priceEach * quantityordered) AS 판매액
+    , COUNT(DISTINCT A.customerNumber) AS 구매고객_수
+    , SUM(B.priceEach * B.quantityordered) AS 판매액
 FROM orders A
 LEFT JOIN orderdetails B
 ON A.orderNumber = B.orderNumber
